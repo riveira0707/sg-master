@@ -47,24 +47,30 @@
       padding-bottom: 8px;
       border-bottom: 2px solid #ecdcc3;
     }
+
+    /* 横長ボタン用：1列で横幅いっぱいに */
     .button-row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      grid-template-columns: 1fr;   /* 1列＝横幅いっぱい */
+      gap: 12px;
     }
+
     .menu-btn {
       display: block;
-      padding: 15px 12px;
-      font-size: 15px;
+      width: 100%;                  /* 横幅いっぱい */
+      padding: 16px 20px;
+      font-size: 16px;
       font-weight: 700;
       border: 1px solid #dcb98a;
       border-radius: 6px;
       background: #fcebd3;
       color: #5a4128;
       cursor: pointer;
-      text-align: center;
+      text-align: left;             /* 長い文字を左寄せで読みやすく */
       text-decoration: none;
       transition: background 0.2s, border-color 0.2s;
+      line-height: 1.5;
+      word-break: break-word;       /* 長い文字も折り返し */
     }
     .menu-btn:hover {
       background: #f8dbb4;
@@ -92,19 +98,16 @@
     }
     .tip-btn:hover { background: #eadfd0; border-color: #b9a48a; }
 
-    .button-row.four { grid-template-columns: repeat(4, 1fr); }
-
+    /* モバイルでも1列のまま（横幅を活かす） */
     @media (max-width: 600px) {
-      .button-row, .button-row.four { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 400px) {
-      .button-row, .button-row.four { grid-template-columns: 1fr; }
+      .button-row { grid-template-columns: 1fr; }
+      .menu-btn { text-align: left; }
     }
   </style>
 </head>
 <body>
 
-  <h2>情報セキュリティマネジメント試験<br>理解度確認ツール</h2>
+  <h2>情報セキュリティマネジメント<br>理解度確認ツール</h2>
 
   <div class="usage-note">
     <strong>使い方</strong><br>
@@ -116,20 +119,20 @@
   <!-- 科目A -->
   <div class="chapter-block">
     <div class="chapter-title">シラバス用語リスト　科目A</div>
-    <div class="button-row four">
-      <a href="科目A①.html" class="menu-btn">その①</a>
-      <a href="科目A②.html" class="menu-btn">その②</a>
-      <a href="科目A③.html" class="menu-btn">その③</a>
-      <a href="科目A④.html" class="menu-btn">その④</a>
+    <div class="button-row">
+      <a href="科目A①.html" class="menu-btn">1:情報セキュリティ</a>
+      <a href="科目A②.html" class="menu-btn">2:法務/3:システム構成要素</a>
+      <a href="科目A③.html" class="menu-btn">4:データベース/5:ネットワーク/6:プロジェクトマネジメント/7:サービスマネジメント/8:システム監査</a>
+      <a href="科目A④.html" class="menu-btn">9:システム戦略/10:システム企画/11:企業活動</a>
     </div>
   </div>
 
   <!-- 科目B -->
   <div class="chapter-block">
     <div class="chapter-title">シラバス用語リスト　科目B</div>
-    <div class="button-row four">
-      <a href="科目B①.html" class="menu-btn">その①</a>
-      <a href="科目B②.html" class="menu-btn">その②</a>
+    <div class="button-row">
+      <a href="科目B①.html" class="menu-btn">Ⅰ 情報セキュリティマネジメントの計画，情報セキュリティ要求事項に関すること</a>
+      <a href="科目B②.html" class="menu-btn">Ⅱ 情報セキュリティマネジメントの運用・継続的改善に関すること</a>
     </div>
   </div>
 
