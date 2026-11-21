@@ -56,7 +56,8 @@
     }
 
     .menu-btn {
-      display: block;
+      display: flex;                /* 文字を上下中央に配置 */
+      align-items: center;
       width: 100%;                  /* 横幅いっぱい */
       padding: 16px 20px;
       font-size: 16px;
@@ -168,6 +169,18 @@
         'なります。ご了承ください。'
       );
     }
+
+    // 全ボタンの高さを、最も高いボタンに揃える
+    function equalizeButtons() {
+      var buttons = document.querySelectorAll('.menu-btn');
+      buttons.forEach(function (b) { b.style.minHeight = ''; });   // いったんリセット
+      var maxH = 0;
+      buttons.forEach(function (b) { maxH = Math.max(maxH, b.offsetHeight); });
+      buttons.forEach(function (b) { b.style.minHeight = maxH + 'px'; });
+    }
+
+    window.addEventListener('load', equalizeButtons);
+    window.addEventListener('resize', equalizeButtons);
   </script>
 
 </body>
